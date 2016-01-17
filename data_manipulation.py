@@ -1,13 +1,14 @@
 import os 
-os.chdir('C:\Users\JianfengYan\Documents\GitHub\music recommendation system\data')
+os.chdir('C:\Users\JianfengYan\Documents\GitHub\music_recommendation_system\data')
 from scipy.sparse import csc_matrix
 
+ 
 
 def read_songs():
 	with open('kaggle_songs.txt','r') as f:
 		songs = f.readlines()
 	f.close()
-	songs = [i.split()[0] for i in g]
+	songs = [i.split()[0] for i in songs]
 	return songs
 
 
@@ -48,7 +49,7 @@ def make_data_set():
 
 	sp_matrix = csc_matrix((data, (rows, cols)), shape=(len(users), len(songs)))
 
-	return [inv_users,inv_songs,sp_matrix]
+	return [inv_users,inv_songs,sp_matrix,dic_songs,dic_users]
 
 
 
